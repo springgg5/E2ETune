@@ -34,17 +34,17 @@ if __name__ == '__main__':
                 print(f'occur {e}')
                 continue
     else:
-        # for idx in range(35, 50):
-        #     args['benchmark_config']['workload_path'] = 'SuperWG/res/gpt_workloads/' + workloads[idx]
-        #     try:
-        #         tune(workloads[idx], cmd.host, args)
-        #     except Exception as e:
-        #         print(f'occur {e}')
-        #         continue
+        for idx in range(0, 13):
+            args['benchmark_config']['workload_path'] = 'SuperWG/res/gpt_workloads/' + workloads[idx]
+            try:
+                tune(workloads[idx], cmd.host, args)
+            except Exception as e:
+                print(f'occur {e}')
+                continue
     
-        # train_surrogate(cmd.database)   
+        train_surrogate(cmd.database)   
 
-        for idx in range(94, len(workloads)):
+        for idx in range(0, len(workloads)):
             args['benchmark_config']['tool'] = 'surrogate'
             args['surrogate_config']['model_path'] = f'surrogate/{cmd.database}.pkl'
             args['surrogate_config']['feature_path'] = f'SuperWG/feature/{cmd.database}.json'

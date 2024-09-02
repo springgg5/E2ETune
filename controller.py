@@ -79,7 +79,7 @@ def tune(workload, host, args):
             best_config = json.loads(best_config.strip())
             test_surrogate_result(workload, args=args, config=best_config)
         except:
-            with open(f'record/offine_record2.jsonl', 'a') as w:
+            with open(f'record/offine_record.jsonl', 'a') as w:
                 strs = json.dumps({'workload': workload, 'default_tps': float(default_performance), \
                             'best_tps': best_tps, 'best_config': best_config})
                 w.write(strs + '\n')
