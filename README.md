@@ -13,7 +13,8 @@ The source code for E2ETune
 3. Download and install PostgreSQL 12.2
 
    ```
-   
+   sudo apt-get update
+   sudo apt-get install postgresql postgresql-client
    ```
 
 ## Training Data Construction
@@ -53,7 +54,8 @@ The source code for E2ETune
   We realise our generated OLTP workloads in `oltp_workloads` fold by configuration files of `benchbase`, one can move the fold into `benchbase/target/benchbase-postgres/config/postgres` and execute them as follows (take `tpcc` as an example):
 
   ```bash
-  
+  cd /your/path/benchbase/target/benchbase-postgres
+  java -jar benchbase.jar -b tpcc -c config/postgres/sample_tpcc_config0.xml --clear=true --create=true --load=true --execute=true --directory /your/results/path
   ```
 
 ### Label Collection
